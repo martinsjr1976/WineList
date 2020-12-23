@@ -1,11 +1,10 @@
-<!DOCTYPE html
-  PUBLIC "XSLT-compat">
+<!DOCTYPE html PUBLIC "XSLT-compat" >
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>Wine List</title><style>
-            	XML {
-					display:none;
+                XML {
+    				display:none;
 				}
 				body {
 					font-family: Arial, Helvetica, sans-serif;
@@ -57,12 +56,11 @@
       <table id="wineMenu" border="1" class="indent">
          <thead>
             <tr>
-               <th colspan="7">Wine List</th>
+               <th colspan="6">Wine List</th>
             </tr>
             <tr>
                <th>Select</th>
                <th>Name</th>
-               <th>Type</th>
                <th>Country</th>
                <th>Region</th>
                <th>Price</th>
@@ -71,36 +69,30 @@
          </thead>
          <tbody>
             <tr>
-               <td colspan="7"></td>
+               <td colspan="6">Red</td>
             </tr>
             <tr id="1" wineReserve="true">
                <td align="center"><input name="item" type="checkbox"></td>
                <td>Riesling Hugel</td>
-               <td>white</td>
                <td>France</td>
                <td>Alsace and East</td>
                <td>17.95</td>
                <td>2002</td>
             </tr>
-            <tr>
-               <td colspan="7"></td>
-            </tr>
-            <tr id="1" wineReserve="true">
+            <tr id="2" wineReserve="true">
                <td align="center"><input name="item" type="checkbox"></td>
                <td>Domaine de l'Île Margaux</td>
-               <td>red</td>
                <td>France</td>
                <td>Bordeaux</td>
                <td>22.50</td>
                <td>2006</td>
             </tr>
             <tr>
-               <td colspan="7"></td>
+               <td colspan="6">White</td>
             </tr>
             <tr id="1" wineReserve="true">
                <td align="center"><input name="item" type="checkbox"></td>
                <td>Dada</td>
-               <td>red</td>
                <td>Argentina</td>
                <td>Fincas Las Moras</td>
                <td>12.50</td>

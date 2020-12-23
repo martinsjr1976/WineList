@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="wineList.xsl"?>
 <wine_list>
-    <wine>
-        <wineName>Riesling Hugel</wineName>
-        <wineType>white</wineType>
-        <country>France</country>
-        <region>Alsace and East</region>
-        <price>17.95</price>
-        <year>2002</year>
-    </wine>
-    <wine>
-        <wineName>Domaine de l'Île Margaux</wineName>
-        <wineType>red</wineType>
-        <country>France</country>
-        <region>Bordeaux</region>
-        <price>22.50</price>
-        <year>2006</year>
-    </wine>
-    <wine>
-        <wineName>Dada</wineName>
-        <wineType>red</wineType>
-        <country>Argentina</country>
-        <region>Fincas Las Moras</region>
-        <price>12.50</price>
-        <year>2017</year>
-    </wine>
+    <section type="Red">
+        <reserve wineReserve="true">
+            <wine>
+                <name>Riesling Hugel</name>
+                <country>France</country>
+                <region>Alsace and East</region>
+                <price>17.95</price>
+                <year>2002</year>
+            </wine>
+        </reserve>
+        <reserve wineReserve="false">
+            <wine>
+                <name>Domaine de l'Île Margaux</name>
+                <country>France</country>
+                <region>Bordeaux</region>
+                <price>22.50</price>
+                <year>2006</year>
+            </wine>
+        </reserve>
+    </section>
+    <section type="White">
+        <reserve wineReserve="true">
+            <wine>
+                <name>Dada</name>
+                <country>Argentina</country>
+                <region>Fincas Las Moras</region>
+                <price>12.50</price>
+                <year>2017</year>
+            </wine>
+        </reserve>
+    </section>
 </wine_list>
