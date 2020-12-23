@@ -32,4 +32,27 @@
             </wine>
         </reserve>
     </section>
+    <section type="Champagne">
+        <reserve wineReserve="true">
+            <wine>
+                <name>Moet Chandon Imperial</name>
+                <country>France</country>
+                <region>Champagne</region>
+                <price>50.50</price>
+                <year>2017</year>
+            </wine>
+        </reserve>
+    </section>
+        <section type="Dessert">
+        <reserve wineReserve="false">
+            <wine>
+                <name>Viognier</name>
+                <country>Germany</country>
+                <region>Ahr</region>
+                <price>23.40</price>
+                <year>2005</year>
+            </wine>
+        </reserve>
+    </section>
+    
 </wine_list>

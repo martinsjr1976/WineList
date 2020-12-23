@@ -62,7 +62,8 @@ router.post('/post/json', function (req, res) {
         xmlFileToJs('WineList.xml', function (err, result) {
             if (err) throw (err);
             
-            result.cafemenu.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price});
+            result.wine_list.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price});
+            result.wine_list.section.
 
             console.log(JSON.stringify(result, null, "  "));
 
