@@ -30,7 +30,7 @@ function select_row()
 	})
 };
 
-function delete_row(sec, ent)
+function delete_row(sec, reserve)
 {
 	$("#delete").click(function ()
 	{
@@ -41,7 +41,7 @@ function delete_row(sec, ent)
 			data:
 			{
 				section: sec,
-				entree: ent
+				reserve: reserve
 			},
 			cache: false,
 			success: setTimeout(draw_table, 1000)

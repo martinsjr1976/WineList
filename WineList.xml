@@ -1,57 +1,60 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="wineList.xsl"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <wine_list>
-    <section type="Red">
-        <reserve wineReserve="true">
-            <wine>
-                <name>Riesling Hugel</name>
-                <country>France</country>
-                <region>Alsace and East</region>
-                <price>17.95</price>
-                <year>2002</year>
-            </wine>
-        </reserve>
-        <reserve wineReserve="false">
-            <wine>
-                <name>Domaine de l'Île Margaux</name>
-                <country>France</country>
-                <region>Bordeaux</region>
-                <price>22.50</price>
-                <year>2006</year>
-            </wine>
-        </reserve>
-    </section>
-    <section type="White">
-        <reserve wineReserve="true">
-            <wine>
-                <name>Dada</name>
-                <country>Argentina</country>
-                <region>Fincas Las Moras</region>
-                <price>12.50</price>
-                <year>2017</year>
-            </wine>
-        </reserve>
-    </section>
-    <section type="Champagne">
-        <reserve wineReserve="true">
-            <wine>
-                <name>Moet Chandon Imperial</name>
-                <country>France</country>
-                <region>Champagne</region>
-                <price>50.50</price>
-                <year>2017</year>
-            </wine>
-        </reserve>
-    </section>
-        <section type="Dessert">
-        <reserve wineReserve="false">
-            <wine>
-                <name>Viognier</name>
-                <country>Germany</country>
-                <region>Ahr</region>
-                <price>23.40</price>
-                <year>2005</year>
-            </wine>
-        </reserve>
-    </section>
+  <section type="Red">
+    <reserve wineReserve="true">
+      <name>Riesling Hugel</name>
+      <country>France</country>
+      <region>Alsace and East</region>
+      <price>17.95</price>
+      <year>2002</year>
+    </reserve>
+    <reserve wineReserve="false">
+      <name>Domaine de l'Île Margaux</name>
+      <country>France</country>
+      <region>Bordeaux</region>
+      <price>22.50</price>
+      <year>2006</year>
+    </reserve>
+    <reserve>
+      <name>hhh</name>
+      <country>ffdf</country>
+      <region>fff</region>
+      <price>1212</price>
+      <year>2020</year>
+    </reserve>
+  </section>
+  <section type="White">
+    <reserve wineReserve="true">
+      <name>Dada</name>
+      <country>Argentina</country>
+      <region>Fincas Las Moras</region>
+      <price>12.50</price>
+      <year>2017</year>
+    </reserve>
+  </section>
+  <section type="Champagne">
+    <reserve wineReserve="true">
+      <name>Moet Chandon Imperial</name>
+      <country>France</country>
+      <region>Champagne</region>
+      <price>50.50</price>
+      <year>2017</year>
+    </reserve>
+    <reserve>
+      <name>kkk</name>
+      <country>jggbg</country>
+      <region>hhhn</region>
+      <price>525</price>
+      <year>2020</year>
+    </reserve>
+  </section>
+  <section type="Dessert">
+    <reserve wineReserve="false">
+      <name>Viognier</name>
+      <country>Germany</country>
+      <region>Ahr</region>
+      <price>23.40</price>
+      <year>2005</year>
+    </reserve>
+  </section>
 </wine_list>

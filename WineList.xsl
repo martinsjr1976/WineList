@@ -32,19 +32,19 @@
                                 <input name="item" type="checkbox" />
                             </td>
                             <td>
-                                <xsl:value-of select="wine/name" />
+                                <xsl:value-of select="name" />
                             </td>
                             <td>
-                                <xsl:value-of select="wine/country" />
+                                <xsl:value-of select="country" />
                             </td>
                             <td>
-                                <xsl:value-of select="wine/region" />
+                                <xsl:value-of select="region" />
                             </td>
                             <td>
-                                <xsl:value-of select="wine/price" />
+                                <xsl:value-of select="price" />
                             </td>
                             <td>
-                                <xsl:value-of select="wine/year" />
+                                <xsl:value-of select="year" />
                             </td>
                         </tr>
                     </xsl:for-each>
