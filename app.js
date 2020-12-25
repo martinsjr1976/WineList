@@ -62,8 +62,11 @@ router.post('/post/json', function (req, res) {
         xmlFileToJs('WineList.xml', function (err, result) {
             if (err) throw (err);
 
-            var x = document.getElementById("optReserve").checked;
-            console.log(x);
+            // var x = document.getElementById("optReserve").checked;
+            // if (x == true){
+
+            // }
+           
             
             // result.wine_list.section[obj.sec_n].entree.push({'name': obj.name, 'price': obj.price});
             result.wine_list.section[obj.sec_n].reserve[x].wine.push({'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year})
