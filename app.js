@@ -49,6 +49,11 @@ router.get('/get/html', function(req, res) {
 
     var result = xsltProcess(doc, stylesheet); //This does our XSL Transformation
 
+    xmlFileToJs('WineList.xml', function(err, result){
+        if (err) throw (err);
+        console.log(result);
+    });
+
     res.end(result.toString()); //Send the result back to the user, but convert to type string first
 
 });
@@ -59,7 +64,7 @@ router.post('/post/json', function (req, res) {
 
         console.log(obj)
 
-        xmlFileToJs('WineList.xml', function (err, result) {
+        xmlFileToJs('WineList.xml', function (err, res) {
             if (err) throw (err);
 
             // var x = document.getElementById("optReserve").checked;
@@ -69,11 +74,11 @@ router.post('/post/json', function (req, res) {
            
             
             // result.wine_list.section[obj.sec_n].entree.push({'name': obj.name, 'price': obj.price});
-            result.wine_list.section[obj.sec_n].reserve[x].wine.push({'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year})
+            res.wine_list.section[obj.sec_n].reserve.push({'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year})
 
-            console.log(JSON.stringify(result, null, "  "));
+            console.log(JSON.stringify(res, null, "  "));
 
-            jsToXmlFile('WineList.xml', result, function(err){
+            jsToXmlFile('WineList.xml', res, function(err){
                 if (err) console.log(err);
             });
         });
