@@ -26,7 +26,7 @@
     </reserve>
   </section>
   <section type="Champagne">
-    <reserve wineReserve="true">
+    <reserve wineReserve="false">
       <name>Moet Chandon Imperial</name>
       <country>France</country>
       <region>Champagne</region>
