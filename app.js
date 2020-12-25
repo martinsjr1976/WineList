@@ -10,36 +10,36 @@ var router = express(); //We set our routing to be handled by Express
 var server = http.createServer(router); //This is where our server gets created
 
 router.use(express.static(path.resolve(__dirname, 'views'))); //We define the views folder as the one where all static content will be served
-router.use(express.urlencoded({extended: true})); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
+router.use(express.urlencoded({ extended: true })); //We allow the data sent from the client to be coming in as part of the URL in GET and POST requests
 router.use(express.json()); //We include support for JSON that is coming from the client
 
 // Function to read in XML file and convert it to JSON
 function xmlFileToJs(filename, cb) {
-  var filepath = path.normalize(path.join(__dirname, filename));
-  fs.readFile(filepath, 'utf8', function(err, xmlStr) {
-    if (err) throw (err);
-    xml2js.parseString(xmlStr, {}, cb);
-  });
+    var filepath = path.normalize(path.join(__dirname, filename));
+    fs.readFile(filepath, 'utf8', function (err, xmlStr) {
+        if (err) throw (err);
+        xml2js.parseString(xmlStr, {}, cb);
+    });
 }
 
 //Function to convert JSON to XML and save it
 function jsToXmlFile(filename, obj, cb) {
-  var filepath = path.normalize(path.join(__dirname, filename));
-  var builder = new xml2js.Builder();
-  var xml = builder.buildObject(obj);
-  fs.unlinkSync(filepath);
-  fs.writeFile(filepath, xml, cb);
+    var filepath = path.normalize(path.join(__dirname, filename));
+    var builder = new xml2js.Builder();
+    var xml = builder.buildObject(obj);
+    fs.unlinkSync(filepath);
+    fs.writeFile(filepath, xml, cb);
 }
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
 
     res.render('index');
 
 });
 
-router.get('/get/html', function(req, res) {
+router.get('/get/html', function (req, res) {
 
-    res.writeHead(200, {'Content-Type': 'text/html'}); //We are responding to the client that the content served back is HTML and the it exists (code 200)
+    res.writeHead(200, { 'Content-Type': 'text/html' }); //We are responding to the client that the content served back is HTML and the it exists (code 200)
 
     var xml = fs.readFileSync('WineList.xml', 'utf8'); //We are reading in the XML file
     var xsl = fs.readFileSync('WineList.xsl', 'utf8'); //We are reading in the XSL file
@@ -49,7 +49,7 @@ router.get('/get/html', function(req, res) {
 
     var result = xsltProcess(doc, stylesheet); //This does our XSL Transformation
 
-    xmlFileToJs('WineList.xml', function(err, result){
+    xmlFileToJs('WineList.xml', function (err, result) {
         if (err) throw (err);
         console.log(result);
     });
@@ -66,12 +66,14 @@ router.post('/post/json', function (req, res) {
 
         xmlFileToJs('WineList.xml', function (err, res) {
             if (err) throw (err);
-           
-            res.wine_list.section[obj.sec_n].reserve.push({'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year})
+
+            //adding new objects to the XML file and displying in a new row, according to the wine type
+            res.wine_list.section[obj.sec_n].reserve.push({ 'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year })
 
             console.log(JSON.stringify(res, null, "  "));
 
-            jsToXmlFile('WineList.xml', res, function(err){
+            //writting the results to the XML file
+            jsToXmlFile('WineList.xml', res, function (err) {
                 if (err) console.log(err);
             });
         });
@@ -91,14 +93,14 @@ router.post('/post/delete', function (req, res) {
 
         xmlFileToJs('WineList.xml', function (err, result) {
             if (err) throw (err);
-            
-            // delete result.wine_list.section[obj.sec_n].reserve[obj.reserve];
+
+            //remove the selected line from the table, also removing the corresponding XML entry
             delete result.wine_list.section[obj.section].reserve[obj.reserve];
-            // delete result.cafemenu.section[obj.section].entree[obj.entree];
 
             console.log(JSON.stringify(result, null, "  "));
 
-            jsToXmlFile('WineList.xml', result, function(err){
+            //writting the results to the XML file
+            jsToXmlFile('WineList.xml', result, function (err) {
                 if (err) console.log(err);
             });
         });
