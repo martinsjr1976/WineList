@@ -20,8 +20,7 @@ function calculateBill(wineMenu) {
 };
 
 function highlightReserveWine(wineMenu, showReserveWine) {
-    // if bShowVeg is true, then we're highlighting vegetarian
-    //	meals, otherwise we're unhighlighting them.
+    // if showReserveWine is true, then we're highlighting reserve wines
     var i = 0;
     var oTable = document.getElementById(wineMenu);
     var oTBODY = oTable.getElementsByTagName('tbody')[0];
