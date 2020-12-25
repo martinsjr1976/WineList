@@ -66,11 +66,6 @@ router.post('/post/json', function (req, res) {
 
         xmlFileToJs('WineList.xml', function (err, res) {
             if (err) throw (err);
-
-            // var x = document.getElementById("optReserve").checked;
-            // if (x == true){
-
-            // }
            
             res.wine_list.section[obj.sec_n].reserve.push({'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year})
 
@@ -94,15 +89,16 @@ router.post('/post/delete', function (req, res) {
 
         console.log(obj)
 
-        xmlFileToJs('WineList.xml', function (err, res) {
+        xmlFileToJs('WineList.xml', function (err, result) {
             if (err) throw (err);
             
-            delete res.wine_list.section[obj.sec_n].reserve[obj.reserve];
+            // delete result.wine_list.section[obj.sec_n].reserve[obj.reserve];
+            delete result.wine_list.section[obj.section].reserve[obj.reserve];
             // delete result.cafemenu.section[obj.section].entree[obj.entree];
 
-            console.log(JSON.stringify(res, null, "  "));
+            console.log(JSON.stringify(result, null, "  "));
 
-            jsToXmlFile('WineList.xml', res, function(err){
+            jsToXmlFile('WineList.xml', result, function(err){
                 if (err) console.log(err);
             });
         });
