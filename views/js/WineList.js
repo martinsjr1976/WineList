@@ -1,5 +1,4 @@
-// returns a number that represents the sum of all the selected menu
-// item prices.
+// calculates the sum of the selected wines from the table
 function calculateBill(wineMenu) {
     var fBillTotal = 0.0;
     var i = 0;
@@ -19,6 +18,7 @@ function calculateBill(wineMenu) {
     return Math.round(fBillTotal * 100.0) / 100.0;
 };
 
+//function to highlight the reserve wines on the table
 function highlightReserveWine(wineMenu, showReserveWine) {
     // if showReserveWine is true, then we're highlighting reserve wines
     var i = 0;
@@ -47,3 +47,49 @@ function getParentTag(oNode, sParentType) {
     };
     return oParent;
 };
+
+//form validation
+const form = document.getElementById('form-control');
+const name = document.getElementById('name');
+const country = document.getElementById('country');
+const region = document.getElementById('region');
+const price = document.getElementById('price');
+const year = document.getElementById('year');
+
+form.addEventListener('submit', (e) => {
+    //prevent the browser to submit the for with empty fields if the user hit submit button
+    e.preventDefault();
+
+    checkInputs();
+
+});
+    function checkInputs() {
+        //get the values from the inputs
+        const nameValue = name.value.trim();
+        const countryValue = country.value.trim();
+        const regionValue = region.value.trim();
+        const priceValue = price.value.trim();
+        const yearValue = year.value.trim();
+
+        if(nameValue === ''){
+
+            setErrorFor(name, 'Name cannot be blank');
+        } else {
+            setSuccessFor(name);
+        }
+
+}
+
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement;
+        const small = formControl.querySelector('small');
+
+        small.innerText = message;
+
+        formControl.className = 'form-control error';
+
+    }
+
+
+
+
