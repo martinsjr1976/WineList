@@ -49,9 +49,10 @@
                 <p class="lead">Select your wines from the list below</p>
             </div>
             <div class="col-lg-4 order-2">
-                <form enctype="application/json" action="/post/json" method="post">
+                <form id="mainForm" enctype="application/json" action="/post/json" method="post">
                     <div class="form-group">
                         <select class="form-control" name="sec_n">
+                            <p id="errorMsg"></p>
                             <option value="0">Red Wine</option>
                             <option value="1">White Wine</option>
                             <option value="2">Dessert Wine</option>
@@ -65,14 +66,11 @@
                             <option value="1">False</option>
                         </select> -->
 
-                        <input id="inputName" min="1" class="form-control mt-3" type="text" name="name" placeholder="Name" required>
+                        <input id="inputName" class="form-control mt-3" type="text" name="name" placeholder="Name" required>
                         <input id="inputCountry" class="form-control mt-3" type="text" name="country" placeholder="Country" required>
                         <input id="inputRegion" class="form-control mt-3" type="text" name="region" placeholder="Region" required>
-                        <input id="inputPrice" class="form-control mt-3" type="text" name="price" placeholder="Price" required>
-                        <input id="inputYear" class="form-control mt-3" type="text" name="year" placeholder="Year" required>
-
-                        <!-- <input type="checkbox" id="optReserve" name="isReserve" value="true">
-                        <label for="optReserve">Check for Reserve Wine</label><br> -->
+                        <input id="inputPrice" class="form-control mt-3" type="number" name="price" placeholder="Price" required>
+                        <input id="inputYear" class="form-control mt-3" type="number" name="year" placeholder="Year" required>
 
                         <button type="submit" class="btn btn-primary btn-block mt-3" onclick="formValidation()">Submit</button>
                     </div>
@@ -127,10 +125,13 @@
 
         function formValidation(){
             
-            if(document.getElementById("inputName").validity.rangeUnderflow){
-                alert("Value can't be blank");
+            var inputObj = document.mainForm.price.value;
+            if (IsNaN(price)){
+                document.getElementById("inoutPrice").innerHTML = "Enter a numeric value only";
+                return false;
+            } else {
+                return true;
             }
-            
         }
         
     </script>
