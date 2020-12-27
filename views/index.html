@@ -65,16 +65,16 @@
                             <option value="1">False</option>
                         </select> -->
 
-                        <input class="form-control mt-3" type="text" name="name" placeholder="Name">
-                        <input class="form-control mt-3" type="text" name="country" placeholder="Country">
-                        <input class="form-control mt-3" type="text" name="region" placeholder="Region">
-                        <input class="form-control mt-3" type="text" name="price" placeholder="Price">
-                        <input class="form-control mt-3" type="text" name="year" placeholder="Year">
+                        <input id="inputName" min="1" class="form-control mt-3" type="text" name="name" placeholder="Name" required>
+                        <input id="inputCountry" class="form-control mt-3" type="text" name="country" placeholder="Country" required>
+                        <input id="inputRegion" class="form-control mt-3" type="text" name="region" placeholder="Region" required>
+                        <input id="inputPrice" class="form-control mt-3" type="text" name="price" placeholder="Price" required>
+                        <input id="inputYear" class="form-control mt-3" type="text" name="year" placeholder="Year" required>
 
                         <!-- <input type="checkbox" id="optReserve" name="isReserve" value="true">
                         <label for="optReserve">Check for Reserve Wine</label><br> -->
 
-                        <button type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-3" onclick="formValidation()">Submit</button>
                     </div>
                 </form>
                 
@@ -125,6 +125,13 @@
             });
         });
 
+        function formValidation(){
+            
+            if(document.getElementById("inputName").validity.rangeUnderflow){
+                alert("Value can't be blank");
+            }
+            
+        }
         
     </script>
 

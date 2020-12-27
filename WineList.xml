@@ -24,6 +24,13 @@
       <price>12.50</price>
       <year>2017</year>
     </reserve>
+    <reserve wineReserve="false">
+      <name>La Maldita</name>
+      <country>Spain</country>
+      <region>Rioja</region>
+      <price>22.50</price>
+      <year>2018</year>
+    </reserve>
   </section>
   <section type="Champagne">
     <reserve wineReserve="false">
