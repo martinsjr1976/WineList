@@ -8,7 +8,7 @@
       <price>17.95</price>
       <year>2002</year>
     </reserve>
-    <reserve wineReserve="false">
+    <reserve>
       <name>Domaine de l'Île Margaux</name>
       <country>France</country>
       <region>Bordeaux</region>
@@ -24,7 +24,7 @@
       <price>12.50</price>
       <year>2017</year>
     </reserve>
-    <reserve wineReserve="false">
+    <reserve>
       <name>La Maldita</name>
       <country>Spain</country>
       <region>Rioja</region>
@@ -33,7 +33,7 @@
     </reserve>
   </section>
   <section type="Champagne">
-    <reserve wineReserve="false">
+    <reserve wineReserve="true">
       <name>Moet Chandon Imperial</name>
       <country>France</country>
       <region>Champagne</region>
@@ -42,7 +42,7 @@
     </reserve>
   </section>
   <section type="Dessert">
-    <reserve wineReserve="false">
+    <reserve>
       <name>Viognier</name>
       <country>Germany</country>
       <region>Ahr</region>

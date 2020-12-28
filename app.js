@@ -67,8 +67,12 @@ router.post('/post/json', function (req, res) {
         xmlFileToJs('WineList.xml', function (err, res) {
             if (err) throw (err);
 
+            console.log(obj)
+
             //adding new objects to the XML file and displying in a new row, according to the wine type
             res.wine_list.section[obj.sec_n].reserve.push({ 'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year })
+
+            // res.wine_list.section[obj.sec_n].reserve[obj.optReserve].reserve.push({ 'name': obj.name, 'country': obj.country, 'region': obj.region, 'price': obj.price, 'year': obj.year })
 
             console.log(JSON.stringify(res, null, "  "));
 
