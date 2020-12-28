@@ -59,18 +59,10 @@
                             <option value="3">Dessert Wine</option>
                         </select>
 
-                        <!-- <div class="form-group">
-                        <label for="optReserve">Is this a Reserve Wine?</label><br>
-                        <select class="form-control" name="optReserve">
-                            <option value="0">true</option>
-                            <option value="1">false</option>
-                        </select>
-                        </div> -->
-
                         <input id="inputName" class="form-control mt-3" type="text" name="name" placeholder="Name" required>
                         <input id="inputCountry" class="form-control mt-3" type="text" name="country" placeholder="Country" required>
                         <input id="inputRegion" class="form-control mt-3" type="text" name="region" placeholder="Region" required>
-                        <input id="inputPrice" class="form-control mt-3" type="number" name="price" placeholder="Price" required>
+                        <input id="inputPrice" class="form-control mt-3" type="text" name="price" placeholder="Price" required>
                         <input id="inputYear" class="form-control mt-3" type="number" name="year" placeholder="Year" required>
 
                         <button type="submit" class="btn btn-primary btn-block mt-3" onclick="formValidation()">Submit</button>
@@ -127,9 +119,9 @@
         function formValidation(){
             
             var inputObj = document.mainForm.price.value;
-            if (IsNaN(price)){
-                document.getElementById("inoutPrice").innerHTML = "Enter a numeric value only";
-                return false;
+            if (IsNaN(inputObj)){
+                // document.getElementById("inputPrice");
+                alert('Only numbers are allowed');
             } else {
                 return true;
             }
