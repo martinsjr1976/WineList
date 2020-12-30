@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
     <xsl:output method="html" doctype-public="XSLT-compat" omit-xml-declaration="yes" encoding="UTF-8" indent="yes" />
     <xsl:template match="/">
-        <table id="wineMenu" border="1" class="indent">
+        <table id="wineMenu" border="1" class="table table-dark">
             <thead>
                 <tr>
                     <th colspan="6">Wine List</th>

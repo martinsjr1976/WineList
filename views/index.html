@@ -49,7 +49,8 @@
                 <p class="lead">Select your wines from the list below</p>
             </div>
             <div class="col-lg-4 order-2">
-                <form id="mainForm" enctype="application/json" action="/post/json" method="post">
+                <!-- use NOVALIDATE to force the validation on server side -->
+                <form id="mainForm" enctype="application/json" action="/post/json" method="post" novalidate>
                     <div class="form-group">
                         <select class="form-control" name="sec_n">
                             <p id="errorMsg"></p>
@@ -65,11 +66,11 @@
                         <input id="inputPrice" class="form-control mt-3" type="text" name="price" placeholder="Price" required>
                         <input id="inputYear" class="form-control mt-3" type="number" name="year" placeholder="Year" required>
 
-                        <button type="submit" class="btn btn-primary btn-block mt-3" onclick="formValidation()">Submit</button>
+                        <button type="submit" class="btn btn-dark btn-block mt-3" onclick="formValidation()">Submit</button>
                     </div>
                 </form>
                 
-                <button id="delete" class="btn btn-danger btn-block mt-3">Delete</button>
+                <button id="delete" class="btn btn-dark btn-block mt-3">Delete</button>
                 <p class="text-muted text-center">To delete a wine, select the required row first</p>
                 
                 <form>
@@ -85,7 +86,7 @@
                                     aria-label="Mark to highhighlight Reserve Wines" alt="Reserve Wines">
                             </div>
                         </div>
-                        <input class="btn btn-block btn-secondary mt-2" type="button" name="btnCalcBill"
+                        <input class="btn btn-block btn-danger mt-2" type="button" name="btnCalcBill"
                             value="Calculate your bill" id="calcBill">
                     </div>
                 </form>
@@ -106,6 +107,7 @@
     <script src="js/WineList.js"></script>
 
     <script>
+        
         window.addEventListener("load", function() {
             document.forms[1].txtBillAmt.value = calculateBill('wineMenu');
             document.querySelector("#calcBill").addEventListener("click", function() {
@@ -116,15 +118,23 @@
             });
         });
 
+        //attempt to validate que user input, but it#s not working properly
         function formValidation(){
             
-            var inputObj = document.mainForm.price.value;
-            if (IsNaN(inputObj)){
-                // document.getElementById("inputPrice");
-                alert('Only numbers are allowed');
-            } else {
-                return true;
+            var inputObj = document.getElementById('inputName').value;
+            var letters = /^[\s A-Za-z]+$/;
+            if (inputObj!=""){
+              if(inputObj.match(letters)){
+                  allnumeric();
+              }
+              else {
+                  alert('Only characters are allowed');
+                  return false;
+              }  
             }
+            else {
+                alert('Please enter the required information')
+            } 
         }
         
     </script>
