@@ -2,6 +2,10 @@ GET http://localhost:3000/wines
 
 ###
 
+GET http://localhost:3000/wines/6079fe46fed94b637f1e896f
+
+###
+
 POST http://localhost:3000/wines
 Content-Type: application/json
 
@@ -12,3 +16,7 @@ Content-Type: application/json
     "price": 1111,
     "year": 2222
 }
+
+###
+
+DELETE http://localhost:3000/wines/6079fe46fed94b637f1e896f

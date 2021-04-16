@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
 })
 
 //Getting One
-router.get('/:id', (req, res) => {
+router.get('/:id', getWine, (req, res) => {
+    res.json(res.wine)
 
     
 })
@@ -37,9 +38,29 @@ router.post('/', async (req, res) => {
 })
 
 //Delete One
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id', getWine, async (req, res) => {
+    try {
+        await res.wine.remove()
+        res.json({ message: 'Deleted Subscriber' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
     
 })
+
+async function getWine (req, res, next) {
+    let wine
+    try {
+        wine = await Wine.findById(req.params.id)
+        if (wine == null) {
+            return res.status(404).json({ message: 'Cannot find wine' })
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+}
+
+res.wine = wine
+next()
+}
 
 module.exports = router
