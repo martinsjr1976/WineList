@@ -1,1 +1,14 @@
 GET http://localhost:3000/wines
+
+###
+
+POST http://localhost:3000/wines
+Content-Type: application/json
+
+{
+    "name": "Test Wine",
+    "country": "Test Country",
+    "region": "Test Region",
+    "price": 1111,
+    "year": 2222
+}
